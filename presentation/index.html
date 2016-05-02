@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Java 8 nightclazz</title>
+
+    <meta name="author" content="Xavier Detant & Khaled Souf">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/theme/zenika.css" id="theme">
+
+</head>
+
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section id="titre">
+    <h1>Domain Driven Design</h1>
+    <h2>NightClazz</h2>
+</section>
+<section>
+    <h1>Qui suis je ?</h1>
+    <p><img src="img/khaled.jpg" alt="Khaled Souf" height="300"/></p>
+    <h2>Khaled Souf</h2>
+</section>
+<section>
+    <h1>Vous êtes perdus ?</h1>
+    <p><img src="img/perdu.jpg" alt="Perdu?" height="700"/></p>
+</section>
+<section>
+    <h1>Posez des questions !</h1>
+    <p><img src="img/question.jpeg" alt="Questions" height="700"/></p>
+</section>
+<section class="section">
+    <h1>Rappels<br/>JDK 7</h1>
+</section>
+<section class="sommaire">
+    <h1>Domain Driven Design c'est quoi ?</h1>
+    <h1>Langage ubiquitaire</h1>
+    <ol>
+        <li>C'est quoi ?</li>
+        <li>Qu'est ce que ça nous apporte ?</li>
+        <li>Knowledge crunching</li>
+        <li>Modélisation</li>
+    </ol>
+    <h1>pause Pizza</h1>
+    <h1>Design Stratégique</h1>
+    <ol>
+	<li>Contextes bornés (Bounded Context)</li>
+        <li>Mapping de context (Context Mapping)</li>
+    </ol>
+    <h1>Design Tactique</h1>
+    <ol>
+       <li>Entity et Value Object</li>
+       <li>Agrégats et Invariants</li>
+       <li>répositories</li>
+       <li>services</li>
+    </ol>
+    <h1>CQRS et Event Sourcing</h1>
+</section>
+<section>
+    <h1>Opérateur Diamant</h1>
+
+    <p class="fragment"></p>
+    <pre class="fragment"><code class="java"
+                                data-trim>Map&lt;String, List&lt;String&gt;&gt;nightClasses=new HashMap&lt;&gt;();</code></pre>
+
+    <pre class="fragment"><code class="java"
+                                data-trim>Map&lt;String, List&lt;String&gt;&gt;nightClasses=new HashMap();</code></pre>
+
+    <pre class="fragment"><code class="java" data-trim>Map nightClasses=new HashMap&lt;&gt;();</code></pre>
+</section>
+<section>
+    <h1>Catch Multiple avec Java 6</h1>
+
+		<pre><code class="java" data-trim>public class Sample {
+            public multipleCatching() {
+                try {
+                    // hack that throws exception
+                } catch (IOException ex) {
+                    logger.log(ex);
+                } catch (SQLException ex) {
+                    logger.log(ex);
+                }
+            }
+        }</code></pre>
+
+</section>
+<section>
+    <h1>Catch Multiple avec Java 7</h1>
+<pre><code class="java" data-trim>public class Sample {
+    public multipleCatching() {
+        try {
+            // hack that throws exception
+        } catch (IOException | SQLException ex) {
+            logger.log(ex);
+        }
+    }
+}</code></pre>
+</section>
+<section>
+    <h1>Rethrow Exception avec Java 6</h1>
+		<pre><code class="java" data-trim>
+            public class Sample {
+                public void rethrowException(String exceptionName)
+                        throws Exception {
+                    try {
+                        if (exceptionName.equals(&quot;First&quot;)) {
+                            throw new FirstException();
+                        } else {
+                            throw new SecondException();
+                        }
+                    } catch (Exception e) {
+                        throw e;
+                    }
+                }
+            }</code></pre>
+</section>
+<section>
+    <h1>Rethrow Exception avec Java 7</h1>
+<pre><code class="java" data-trim>
+    public class Sample {
+        public void rethrowException(String exceptionName)
+                throws FirstException, SecondException {
+            try {
+                if (exceptionName.equals(&quot;First&quot;)) {
+                    throw new FirstException();
+                } else {
+                    throw new SecondException();
+                }
+            } catch (Exception e) {
+                throw e;
+            }
+        }
+    }</code></pre>
+
+</section>
+<section>
+    <h1>Switch String</h1>
+	<pre><code class="java" data-trim>public class Zenika {
+    public void goToNightClazz() {
+        // hack hack
+        switch (nightClazz) {
+            case &quot;Java 8 Decouverte&quot;:
+                day = &quot;Jeudi 6 Novembre&quot;;
+                break;
+            case &quot;Java 8 Avancee&quot;:
+                day = &quot;Jeudi 4 Decembre&quot;;
+                break;
+            case &quot;VertX Debutant&quot;:
+                typeOfDay = &quot;End of work week&quot;;
+                break;
+            default:
+                throw new IllegalArgumentException(&quot;Invalid night class: &quot;);
+        }
+    }
+}</code></pre>
+</section>
+
+<section>
+    <h1>Try With Resources Java 6</h1>
+
+		<pre><code class="java"
+                   data-trim>public class Sample {
+    public String readFirstLine(String path) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(path));
+        try {
+            return br.readLine();
+        } finally {
+            if (br != null) br.close();
+        }
+    }
+}</code></pre>
+</section>
+<section>
+    <h1>Try With Resources Java 7</h1>
+		<pre><code class="java"
+                                    data-trim>public class Sample {
+    public String readFirstLine(String path) throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            return br.readLine();
+        }
+    }
+}</code></pre>
+
+<pre class="fragment"><code class="java" data-trim>public class Sample {
+    public String readMultiResources(String path) throws IOException {
+        try (
+                ZipFile zf = new ZipFile(zipFileName);
+                BufferedWriter writer = newBufferedWriter(outputFilePath, charset)
+        ) {
+            // reading files ...
+        }
+    }
+}</code></pre>
+</section>
+<section class="section">
+    <h1>Java 8</h1>
+</section>
+<section class="sommaire">
+    <h1>Java 8</h1>
+    <ol>
+        <li>Lambdas</li>
+        <li>API Stream</li>
+        <li>Méthodes par défaut</li>
+    </ol>
+</section>
+<section class="section">
+    <h1>Lambdas</h1>
+</section>
+<section>
+    <h1>Les interfaces fonctionnelles</h1>
+                <pre data-fragment-index="0"><code class="java" data-trim>@FunctionalInterface
+public interface Exam {
+    void doExercises();
+}</code></pre>
+    <p class="fragment" data-fragment-index="1">Permet de paramètriser du comportement</p>
+    <pre class="fragment" data-fragment-index="1"><code class="java"
+                                                        data-trim>public class Student {
+    public void doExam(Exam exam) {
+        exam.doExercises();
+    }
+}</code></pre>
+</section>
+<section>
+    <h1>Utilisation Java 7</h1>
+            <pre data-fragment-index="1"><code class="java"
+                                               data-trim>public class Teacher {
+    Collection&lt;Student&gt; students = new ArrayList&lt;&gt;();
+
+    public void giveExamToClass() {
+        // hack hack
+        for (Student student : students) {
+            student.doExam(new Exam() {
+                @Override
+                public void doExercises() {
+                /* hack hack */
+                }
+            });
+        }
+    }
+}</code></pre>
+    <p class="fragment"><em class="alert">Peu lisible et beaucoup de code inutile</em></p>
+</section>
+<section>
+    <h1>Utilisation Java 8</h1>
+            <pre data-fragment-index="1"><code class="java"
+                                               data-trim>public class Teacher {
+    Collection&lt;Student&gt; students = new ArrayList&lt;&gt;();
+
+    public void giveExamToClass() {
+        // hack hack
+        for (Student student : students) {
+            student.doExam(() -&gt; /* hack hack */);
+        }
+    }
+}</code></pre>
+</section>
+<section>
+    <h1>Les lambdas expressions</h1>
+    <pre><code class="java"
+                                                        data-trim>public class Exam {
+    public void computeScore() {
+        // hack hack
+    }
+}
+
+@FunctionalInterface
+public interface Mood {
+    void correct(Exam exam);
+}
+
+public class Teacher {
+    public void correctExam(Mood mood) {
+        mood.correct(exam);
+    }
+}</code></pre>
+</section>
+<section>
+    <h1>Les lambdas expressions</h1>
+
+    <p class="fragment" data-fragment-index="0">Les lambdas sont utilisées pour définir des implémentations aux
+        interfaces fonctionnelles</p>
+    <pre class="fragment" data-fragment-index="1"><code class="java"
+                                                        data-trim>angryTeacher.correctExam((e)-&gt;e.setScore(0));</code></pre>
+    <pre class="fragment" data-fragment-index="2"><code class="java"
+                                                        data-trim>happyTeacher.correctExam((e)-&gt;e.setScore(20));</code></pre>
+    <pre class="fragment" data-fragment-index="3"><code class="java"
+                                                        data-trim>teacher.correctExam((e)-&gt;e.computeScore());</code></pre>
+    <p class="fragment" data-fragment-index="4">les parenthèses ne sont pas obligatoires si on a un
+        seul paramètre</p>
+    <pre class="fragment" data-fragment-index="4"><code class="java"
+                                                        data-trim>teacher.correctExam(e-&gt;e.computeScore());</code></pre>
+    <p class="fragment" data-fragment-index="5">on peut encore simplifier grâce aux method reference</p>
+    <pre class="fragment" data-fragment-index="5"><code class="java"
+                                                        data-trim>teacher.correctExam(Exam::computeScore);</code></pre>
+</section>
+
+<section>
+    <h1>Les method references</h1>
+    <pre><code class="java"
+               data-trim>public class Exam {
+    public void computeScore() {
+        // hack hack
+    }
+}</code></pre>
+    <p>permet d'appeler une méthode du paramètre</p>
+    <pre><code class="java"
+               data-trim>teacher.correctExam(Exam::computeScore);</code></pre>
+</section>
+
+<section>
+    <h1>Les method references</h1>
+    <pre><code class="java"
+               data-trim>public class Teacher {
+    public void manageExamCorrection(Exam exam) {
+        exam.computeScore();
+    }
+}</code></pre>
+    <p>permet d'appeler une méthode d'une instance d'objet</p>
+    <pre><code class="java"
+               data-trim>teacher.correctExam(teacher::manageExamCorrection);</code></pre>
+    <p>l'instance peut-être <em class="keyword">this</em></p>
+    <pre class="fragment"><code class="java"
+                                data-trim>teacher.correctExam(this::callerObjectCorrection);</code></pre>
+</section>
+
+<section>
+    <h1>Les method references</h1>
+    <pre><code class="java"
+               data-trim>public class Teacher {
+    public static void staticManageExamCorrection(Exam exam) {
+        exam.computeScore();
+    }
+}</code></pre>
+    <p>permet d'appeler une méthode static d'une classe</p>
+    <pre><code class="java"
+               data-trim>teacher.correctExam(Teacher::staticManageExamCorrection);</code></pre>
+</section>
+
+<section>
+    <h1>Hands on !</h1>
+    <p><img src="img/computer-geek.jpg" alt="Hands on" style="margin-top: 100px"/></p>
+</section>
+
+<section>
+    <p><img src="img/minions.jpg" alt="Hands on" style="margin-top: 100px"/></p>
+</section>
+<section class="section">
+    <h1>API Streams</h1>
+</section>
+<section>
+    <h1>Génération de streams</h1>
+
+    <p class="fragment" data-fragment-index="1">On peut obtenir un stream à partir d'une collection</p>
+    <pre class="fragment" data-fragment-index="1"><code class="java"
+                                                        data-trim>Stream&lt;Element&gt;stream=collection.stream();</code></pre>
+    <p class="fragment" data-fragment-index="2">Ou on peut construire les notres</p>
+    <pre class="fragment" data-fragment-index="2"><code class="java"
+                                                        data-trim>Stream.Builder&lt;T&gt;builder=Stream.builder();</code></pre>
+    <pre class="fragment" data-fragment-index="2"><code class="java" data-trim>Stream.of(T...elements);</code></pre>
+    <pre class="fragment" data-fragment-index="2"><code class="java" data-trim>Stream.generate(supplier);</code></pre>
+    <pre class="fragment" data-fragment-index="2"><code class="java" data-trim>Stream.iterate(seed,transformer);</code></pre>
+    <pre class="fragment" data-fragment-index="2"><code class="java"
+                                                        data-trim>StreamSupport.stream(spliterator,bool);</code></pre>
+    <p class="fragment" data-fragment-index="3">Il est devenu facile de paralleliser les traitements</p>
+    <pre class="fragment" data-fragment-index="3"><code class="java"
+                                                        data-trim>Stream&lt;Element&gt;stream=collection.parallelStream()</code></pre>
+    <pre class="fragment" data-fragment-index="3"><code class="java"
+                                                        data-trim>stream.parallel()</code></pre>
+</section>
+
+<section>
+    <h1>Parallélisation</h1>
+                <pre><code class="java" data-trim>public class Sample {
+    public void doSomeThingForEach(List&lt;T&gt; list) {
+        for (T element : list) {
+            doSomeThing(element);
+        }
+    }
+}</code></pre>
+</section>
+<section>
+    <h1>Parallélisation</h1>
+            <pre><code class="java" data-trim>public class Sample {
+    public void doSomeThingForEach(List&lt;T&gt; list) {
+        for (T element : list) {
+            executorService.submit(taskOnElement);
+        }
+        // some magic to wait for termination
+    }
+}</code></pre>
+</section>
+<section>
+    <h1>Parallélisation</h1>
+            <pre><code class="java" data-trim>public class Sample {
+    public void doSomeThingForEach(List&lt;T&gt; list) {
+        list.parallelStream().forEach(e -&gt; e.doSomething());
+    }
+}</code></pre>
+    <p>
+        Les lambdas viennent nous simplifier la vie !
+    </p>
+</section>
+
+<section>
+    <h1>Manipulation du Stream</h1>
+                <pre><code class="java"
+                           data-trim>public interface Stream&lt;T&gt; extends BaseStream&lt;T, Stream&lt;T&gt;&gt; {
+
+    Stream&lt;T&gt; filter(Predicate&lt;? super T&gt; predicate);
+
+    &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper);
+
+    Stream&lt;T&gt; distinct();
+
+    Stream&lt;T&gt; sorted();
+
+    Stream&lt;T&gt; peek(Consumer&lt;? super T&gt; action);
+
+    Stream&lt;T&gt; limit(long maxSize);
+}</code></pre>
+</section>
+
+<section>
+    <h1>Manipulation du Stream</h1>
+                <pre><code class="java"
+                           data-trim>public interface Stream&lt;T&gt; extends BaseStream&lt;T, Stream&lt;T&gt;&gt; {
+
+    void forEach(Consumer&lt;? super T&gt; action);
+
+    long count();
+
+    boolean anyMatch(Predicate&lt;? super T&gt; predicate);
+
+    Optional&lt;T&gt; min(Comparator&lt;? super T&gt; comparator);
+
+    Optional&lt;T&gt; findAny();
+}</code></pre>
+</section>
+
+<section>
+    <h1>L'api optional</h1>
+                <pre><code class="java" data-trim>public final class Optional&lt;T&gt; {
+
+    public T get();
+
+    public boolean isPresent();
+
+    public T orElse(T other);
+
+    public &lt;X extends Throwable&gt; T
+    orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier) throws X;
+
+    public static &lt;T&gt; Optional&lt;T&gt; empty();
+}</code></pre>
+</section>
+</section>
+
+
+<section>
+    <h1>Hands on !</h1>
+    <p><img src="img/computer-geek.jpg" alt="Hands on" style="margin-top: 100px"/></p>
+</section>
+
+<section>
+    <img src="img/gru.jpg" alt="Hands on" style="margin-top: 200px"/>
+</section>
+<section class="section">
+    <h1>Default<br/>method</h1>
+</section>
+<section>
+    <h1>Les méthodes par défaut</h1>
+
+    <p>nouveau modificateur <em class="keyword">default</em></p>
+            <pre><code class="java" data-trim>public interface MyNewInterface {
+    default String myDefaultMethod(String name) {
+        return &quot;Hello &quot; + name;
+    }
+}</code></pre>
+</section>
+
+<section>
+    <h1>Implémentation</h1>
+		  <pre><code class="java" data-trim>public interface MyNewInterface {
+    public static String myStaticMethod() {
+        return &quot;World&quot;;
+    }
+
+    default String myDefaultMethod(String name) {
+        return &quot;Hello &quot; + myStaticMethod();
+    }
+
+    String myAbstractMethod();
+
+    default String myOtherDefaultMethod() {
+        return &quot;Hello &amp;quot + myAbstractMethod();
+    }
+}</code></pre>
+</section>
+<section>
+    <h1>Héritage</h1>
+<pre><code class="java" data-trim>public interface MyNewInterface {
+    default String myDefaultMethod(String name) {
+        return &quot;Hello &quot;;
+    }
+}
+
+public interface MyNewInterfaceTwo extends MyNewInterface {
+    default String myDefaultMethod(String name) {
+        return &quot;Hello World&quot;;
+    }
+}</code></pre>
+</section>
+<section>
+    <h1>Héritage</h1>
+<pre><code class="java" data-trim>public interface MyNewInterface {
+    default String myDefaultMethod(String name) {
+        return &quot;Hello &quot;;
+    }
+}
+
+public interface MyNewInterfaceTwo {
+    default String myDefaultMethod(String name) {
+        return &quot;Hello World&quot;;
+    }
+}
+
+public class MyImplementor implements MyNewInterface, MyNewInterfaceTwo {
+
+    public String myDefaultMethod(String name) {
+        return MyNewInterface.super.myDefaultMethod(&quot;what a wonderful world !!!&quot;);
+    }
+}</code></pre>
+</section>
+
+<section>
+    <h1>Hands on !</h1>
+    <p><img src="img/computer-geek.jpg" alt="Hands on" style="margin-top: 100px"/></p>
+</section>
+
+<section>
+ <img src="img/banana.jpg" alt="Hands on" style="margin-top: 100px"/>
+</section>
+</div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: false,
+        width: 1439,
+        height: 1079,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            } },
+            { src: 'plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src: 'plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
+                return !!document.body.classList;
+            } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function () {
+                return !!document.body.classList;
+            } }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
