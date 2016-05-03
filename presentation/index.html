@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Java 8 nightclazz</title>
+    <title>Domain Driven Design NightClazz</title>
 
-    <meta name="author" content="Xavier Detant & Khaled Souf">
+    <meta name="author" content="Khaled Souf">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -40,509 +40,350 @@
     <h1>Posez des questions !</h1>
     <p><img src="img/question.jpeg" alt="Questions" height="700"/></p>
 </section>
-<section class="section">
-    <h1>Rappels<br/>JDK 7</h1>
-</section>
 <section class="sommaire">
-    <h1>Domain Driven Design c'est quoi ?</h1>
-    <h1>Langage ubiquitaire</h1>
+    <h1>Sommaire</h1>
     <ol>
-        <li>C'est quoi ?</li>
-        <li>Qu'est ce que ça nous apporte ?</li>
-        <li>Knowledge crunching</li>
-        <li>Modélisation</li>
+        <li>Domain Driven Design c'est quoi ?</li>
+        <li>Langage ubiquitaire</li>
+        <li>pause Pizza</li>
+        <li>Design Stratégique</li>
+        <li>Design Tactique</li>
     </ol>
-    <h1>pause Pizza</h1>
+</section>
+<section>
+<h1>Domain Driven Design <br/>c'est quoi ?</h1>
+    <p>Une méthode de conception logicielle qui favorise une conception proche de la réalité</p>
+    <p>Focalisation sur le métier (au lieu d’uniquement des parties techniques)</p>
+    <p>On utilise explicitement des noms et des verbes du domaine dans le code </p> 
+    <p>La connaissance métier est le noyau de l’application</p>
+</section>
+    
+<section class="sommaire">
+    <h1>Langage ubiquitaire</h1>
+        <ol>
+            <li>C'est quoi ?</li>
+            <li>Par ou Commencer? (Impact Mapping)</li>
+            <li>Comment le construire? (Event Storming) </li>
+            <li>Modélisation</li>
+        </ol>
+</section>
+    
+    <section>
+<h1>Langage ubiquitaire</h1>
+        <ol>
+        <dl>Programmers should speak the language of domain experts to avoid miscommunication, delays, and errors. 
+        </dl>
+        <dl>To avoid mental translation between domain language and code, design your software to use the language of the domain. </dl> 
+        <dl>    
+            Reflect in code how users of the softwarethink and speak about their work. One powerful approach is to create a domain model.
+        </dl>
+    
+        </ol>
+</section>
+<section>
+ <img src="img/ubiquitous-language-300x222.jpg" alt="event Storming"  width="1200px" style="margin-top: 100px"/>       
+</section>
+    
+<section class="section">
+    <h1>Impact Mapping</h1>
+</section>
+<section>
+    <h1>Impact Mapping</h1>
+    <img src="img/impact_mappings.png" width="1000px"/>
+</section>
+<section>
+<h1>Impact Mapping</h1>
+    <p>Drawing impact maps An impact map is a visualisation of scope and underlying assumptions, created collaboratively by senior technical and business people. It is a mind-map grown during a discussion facilitated by considering the following four aspects:</p>
+<ol><li>Goal</li>
+    <p>The centre of an impact map answers the most important question: Why are we doing this? This is the goal we are trying to achieve.</p>
+<li>Actors</li>
+    <p>The first branch of an impact map provides answers to the following questions: Who can produce the desired effect? Who can obstruct it? Who are the consumers or users of our product? Who will be impacted by it? These are the actors who can influence the outcome.</p>
+</ol>
+</section>
+
+<section>
+    <h1>Impact Mapping</h1>
+    <ol>
+        <li>Impacts</li>
+    <p>The second branch level of an impact map sets the actors in the perspective of our business goal. It answers the following questions: How should our actors’ behaviour change? How can they help us to achieve the goal? How can they obstruct or prevent us from succeeding? These are the impacts that we’re trying to create.</p>
+<li>Deliverables</li>
+    <p>Once we have the first three questions answered, we can talk about scope. The third branch level of an impact map answers the following question: What can we do, as an organisation or a delivery team, to support the required impacts? These are the deliverables, software features and organisational activities.</p>
+</ol>
+</section>
+    
+<section>
+    <h1>Hands on !</h1>
+    <p><img src="img/computer-geek.jpg" alt="Hands on" style="margin-top: 100px"/></p>
+</section>
+    
+<section class="section">
+    <h1>Event Storming</h1>
+</section>
+
+<section>
+ <img src="img/eventstorming.png" alt="event Storming" style="margin-top: 40px" />       
+</section>
+<section>
+    <h1>Event Storming</h1>
+    <p>
+        Invite the right people to the workshop. Ideally you’ll want a large meeting room with 6..8 people, with the right mixture of the ones who know the questions to ask (and which are curious to listen to the answer) and the ones who know the answers.
+    
+        Provide unlimited modelling space. Too often complex problems are not properly analysed because there’s not enough space available to see the problem. Your problem is bigger than your whiteboard, so what? My solution is to hack the modelling space using whatever available (my favorite tool is an Ikea paper roll) to get rid of the space limitation.
+    
+        Explore the domain starting from Domain Events. A Domain Event is something meaningful happened in the domain. It can be easily translated into software, but the real value here is that it could be quickly grasped from non technical people. An event might be the predecessor of the follower of another one. Place all of them onto your modelling surface (the convention is to use orange stickies for this purpose) according to a timeline.
+    
+        Explore the origin of Domain Events. Some events are the direct consequence of a user action —> represent it as a Command using a blue sticky note. Others are the consequence of something happening in external systems or of the time passing, we’ll use a purple sticky note for them. In some other cases, we’ll have events that will be the direct consequence of some other events. We’ll simply place the two events close together.
+    
+        Look for Aggregates. Instead of defining aggregates starting from the code, we’re taking an outside-in approach: the Aggregate is the portion of the system that receives commands and decides whether to execute them or not, thus producing a domain event.
+    </p>
+</section>
+    
+
+<section>
+    <h1>Event Storming</h1>
+    <img src="img/event-storming-2.jpg" width="1200px" style="margin-top: -190px" />
+</section>
+<section>
+    <h1>Modélisation</h1>    
+    <p>Les modèles décrivent certains aspects du domaine en donnant une description simplifiée (mais réaliste) de la réalité</p>
+    <p>Un modèle forme les bases d’un langage spécialisé pour un domaine</p>
+    <p>Les modèles sont crées et exploités par les différents acteurs de la chaîne logicielle.  Ils constituent une activité de collaboration pour Communiquer</p>
+    <p>Faciliter l’exploration du métier</p>
+    <p>Gérer la complexité</p>
+    <p>Générer du code (de moins en moins)</p>
+</section>
+    
+<section>
+    <h1>Hands on !</h1>
+    <p><img src="img/computer-geek.jpg" alt="Hands on" style="margin-top: 100px"/></p>
+</section>
+    
+<section>
+    <h1>Modélisation (Model Storming)</h1>
+    <img src="img/model-storming.jpg" width="1100px" style="margin-top: -40px" />
+</section>
+<section class="section">
+    <h1>Pause Pizza</h1>
+</section>
+    
+<section class="sommaire">
     <h1>Design Stratégique</h1>
     <ol>
 	<li>Contextes bornés (Bounded Context)</li>
         <li>Mapping de context (Context Mapping)</li>
     </ol>
-    <h1>Design Tactique</h1>
-    <ol>
-       <li>Entity et Value Object</li>
-       <li>Agrégats et Invariants</li>
-       <li>répositories</li>
-       <li>services</li>
-    </ol>
-    <h1>CQRS et Event Sourcing</h1>
-</section>
-<section>
-    <h1>Opérateur Diamant</h1>
-
-    <p class="fragment"></p>
-    <pre class="fragment"><code class="java"
-                                data-trim>Map&lt;String, List&lt;String&gt;&gt;nightClasses=new HashMap&lt;&gt;();</code></pre>
-
-    <pre class="fragment"><code class="java"
-                                data-trim>Map&lt;String, List&lt;String&gt;&gt;nightClasses=new HashMap();</code></pre>
-
-    <pre class="fragment"><code class="java" data-trim>Map nightClasses=new HashMap&lt;&gt;();</code></pre>
-</section>
-<section>
-    <h1>Catch Multiple avec Java 6</h1>
-
-		<pre><code class="java" data-trim>public class Sample {
-            public multipleCatching() {
-                try {
-                    // hack that throws exception
-                } catch (IOException ex) {
-                    logger.log(ex);
-                } catch (SQLException ex) {
-                    logger.log(ex);
-                }
-            }
-        }</code></pre>
-
-</section>
-<section>
-    <h1>Catch Multiple avec Java 7</h1>
-<pre><code class="java" data-trim>public class Sample {
-    public multipleCatching() {
-        try {
-            // hack that throws exception
-        } catch (IOException | SQLException ex) {
-            logger.log(ex);
-        }
-    }
-}</code></pre>
-</section>
-<section>
-    <h1>Rethrow Exception avec Java 6</h1>
-		<pre><code class="java" data-trim>
-            public class Sample {
-                public void rethrowException(String exceptionName)
-                        throws Exception {
-                    try {
-                        if (exceptionName.equals(&quot;First&quot;)) {
-                            throw new FirstException();
-                        } else {
-                            throw new SecondException();
-                        }
-                    } catch (Exception e) {
-                        throw e;
-                    }
-                }
-            }</code></pre>
-</section>
-<section>
-    <h1>Rethrow Exception avec Java 7</h1>
-<pre><code class="java" data-trim>
-    public class Sample {
-        public void rethrowException(String exceptionName)
-                throws FirstException, SecondException {
-            try {
-                if (exceptionName.equals(&quot;First&quot;)) {
-                    throw new FirstException();
-                } else {
-                    throw new SecondException();
-                }
-            } catch (Exception e) {
-                throw e;
-            }
-        }
-    }</code></pre>
-
-</section>
-<section>
-    <h1>Switch String</h1>
-	<pre><code class="java" data-trim>public class Zenika {
-    public void goToNightClazz() {
-        // hack hack
-        switch (nightClazz) {
-            case &quot;Java 8 Decouverte&quot;:
-                day = &quot;Jeudi 6 Novembre&quot;;
-                break;
-            case &quot;Java 8 Avancee&quot;:
-                day = &quot;Jeudi 4 Decembre&quot;;
-                break;
-            case &quot;VertX Debutant&quot;:
-                typeOfDay = &quot;End of work week&quot;;
-                break;
-            default:
-                throw new IllegalArgumentException(&quot;Invalid night class: &quot;);
-        }
-    }
-}</code></pre>
 </section>
 
 <section>
-    <h1>Try With Resources Java 6</h1>
-
-		<pre><code class="java"
-                   data-trim>public class Sample {
-    public String readFirstLine(String path) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(path));
-        try {
-            return br.readLine();
-        } finally {
-            if (br != null) br.close();
-        }
-    }
-}</code></pre>
+    <h1>Contextes bornés (Bounded Context)</h1>
+    <p>Un BC est un contexte délimité par une frontière linguistique nette. A l'intérieur d'un BC, tous les concepts du modèle (noms et verbes) ont une signification spécifique, comprise et acceptée par tous les membres de l’équipe.</p>
+    <p>On détermine donc les limites d’application d’un modèle
+        Les membres de l’équipe ont une vision précise des éléments qui doivent être consistants</p>
+    <p>Dans un BC, le modèle du domaine est exprimé par un Ubiquitous Language partagé par tous
+        Un domaine métier peut contenir plusieurs BC, chaque BC définissant son Propre Language</p>
 </section>
+        
 <section>
-    <h1>Try With Resources Java 7</h1>
-		<pre><code class="java"
-                                    data-trim>public class Sample {
-    public String readFirstLine(String path) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-            return br.readLine();
-        }
-    }
-}</code></pre>
-
-<pre class="fragment"><code class="java" data-trim>public class Sample {
-    public String readMultiResources(String path) throws IOException {
-        try (
-                ZipFile zf = new ZipFile(zipFileName);
-                BufferedWriter writer = newBufferedWriter(outputFilePath, charset)
-        ) {
-            // reading files ...
-        }
-    }
-}</code></pre>
+    <h1>Contextes bornés (Bounded Context): Avantages</h1>
+    <p>Renforce la pureté et la puissance du modèle</p>
+    <p>Evite la confusion avec les autres contextes</p>
+    <p>Simplifie l’Architecture (Fait émerger des transitions explicites entre les différents contextes)</p>
+    <p>Favorise un partitionnement technique et organisationnel</p>
 </section>
-<section class="section">
-    <h1>Java 8</h1>
+
+<section>
+ <img src="img/modularity-without-and-domain-driven-design.jpg" width="1200px" style="margin-top: 100px"/>
+</section>
+
+<section>
+ <img src="img/modularity-bounded-context.jpg" width="1200px"  style="margin-top: 100px"/>
+</section>
+    
+<section>
+        <h1>Context Mapping</h1>
+        <p>Processus de conception pour identifier les points de contact et les relations entre les différents modèles</p>
+        <p>On identifie les Bounded Context (BC) amont et aval, ce qui permet d’expliciter les rôles de chacun</p>
+        <p>On analyse les transformations nécessaires</p>
+        <p>Une relation entre deux équipes</p> 
+        <p>L’équipe en amont (upstream)</p>
+        <p>L’équipe en aval (downstream)</p>
+</section>
+    
+<section>
+    <h1>shared kernel pattern</h1>
+</section>
+
+<section>
+    <h1>customer/supplier Development</h1>
+</section>
+    
+<section>
+    <h1>confirmist</h1>
+</section>
+
+<section>
+    <h1>Anti Corruption Layer</h1>
+</section>
+
+<section>
+    <h1>Separate Ways</h1>
+</section>
+    
+<section>
+    <h1>Hands on !</h1>
+    <p><img src="img/computer-geek.jpg" alt="Hands on" style="margin-top: 100px"/></p>
 </section>
 <section class="sommaire">
-    <h1>Java 8</h1>
+    <h1>Design Tactique</h1>
     <ol>
-        <li>Lambdas</li>
-        <li>API Stream</li>
-        <li>Méthodes par défaut</li>
+       <li>Domain Events</li>
+       <li>Entity et Value Object</li>
+       <li>Agrégats</li>
+       <li>repositories et Factories</li>
+       <li>services</li>
     </ol>
 </section>
-<section class="section">
-    <h1>Lambdas</h1>
+<section>
+    <h1>Domain Events</h1>
+    <p>Les Domain Event modélisent l'activité dans le domaine par une série d'événements discrets:</p>
+    <p>S'est produit dans le passé</p>
+    <p>Intéresse les experts métier</p>
+    <p>Un événement technique n'est pas un Domain Event</p>
+    <p>Fait partie de l'Ubiquitous language</p>
+    <p>Est instantané (sans durée) et atomique (insécable)</p>
 </section>
 <section>
-    <h1>Les interfaces fonctionnelles</h1>
-                <pre data-fragment-index="0"><code class="java" data-trim>@FunctionalInterface
-public interface Exam {
-    void doExercises();
-}</code></pre>
-    <p class="fragment" data-fragment-index="1">Permet de paramètriser du comportement</p>
-    <pre class="fragment" data-fragment-index="1"><code class="java"
-                                                        data-trim>public class Student {
-    public void doExam(Exam exam) {
-        exam.doExercises();
-    }
-}</code></pre>
+    <h1>Contenu Domain Events</h1>
+    <p>IDENTIFIANTS des entités impactées</p>
+    <p>DATE/HEURE de survenance</p>
+    <p>Le CONTEXTE avant et après l'événement Les CIRCONSTANCES de l'événement</p>
+    <p>NUMERO DE SERIE de l'événement (pour permettre à sa consammation d'être idempotente)</p>
+    <p>PAS DE COMPORTEMENT Les consommateurs décident comment tenir compte de l'événement</p>
 </section>
 <section>
-    <h1>Utilisation Java 7</h1>
-            <pre data-fragment-index="1"><code class="java"
-                                               data-trim>public class Teacher {
-    Collection&lt;Student&gt; students = new ArrayList&lt;&gt;();
-
-    public void giveExamToClass() {
-        // hack hack
-        for (Student student : students) {
-            student.doExam(new Exam() {
-                @Override
-                public void doExercises() {
-                /* hack hack */
-                }
-            });
-        }
-    }
-}</code></pre>
-    <p class="fragment"><em class="alert">Peu lisible et beaucoup de code inutile</em></p>
-</section>
-<section>
-    <h1>Utilisation Java 8</h1>
-            <pre data-fragment-index="1"><code class="java"
-                                               data-trim>public class Teacher {
-    Collection&lt;Student&gt; students = new ArrayList&lt;&gt;();
-
-    public void giveExamToClass() {
-        // hack hack
-        for (Student student : students) {
-            student.doExam(() -&gt; /* hack hack */);
-        }
-    }
-}</code></pre>
-</section>
-<section>
-    <h1>Les lambdas expressions</h1>
-    <pre><code class="java"
-                                                        data-trim>public class Exam {
-    public void computeScore() {
-        // hack hack
-    }
-}
-
-@FunctionalInterface
-public interface Mood {
-    void correct(Exam exam);
-}
-
-public class Teacher {
-    public void correctExam(Mood mood) {
-        mood.correct(exam);
-    }
-}</code></pre>
-</section>
-<section>
-    <h1>Les lambdas expressions</h1>
-
-    <p class="fragment" data-fragment-index="0">Les lambdas sont utilisées pour définir des implémentations aux
-        interfaces fonctionnelles</p>
-    <pre class="fragment" data-fragment-index="1"><code class="java"
-                                                        data-trim>angryTeacher.correctExam((e)-&gt;e.setScore(0));</code></pre>
-    <pre class="fragment" data-fragment-index="2"><code class="java"
-                                                        data-trim>happyTeacher.correctExam((e)-&gt;e.setScore(20));</code></pre>
-    <pre class="fragment" data-fragment-index="3"><code class="java"
-                                                        data-trim>teacher.correctExam((e)-&gt;e.computeScore());</code></pre>
-    <p class="fragment" data-fragment-index="4">les parenthèses ne sont pas obligatoires si on a un
-        seul paramètre</p>
-    <pre class="fragment" data-fragment-index="4"><code class="java"
-                                                        data-trim>teacher.correctExam(e-&gt;e.computeScore());</code></pre>
-    <p class="fragment" data-fragment-index="5">on peut encore simplifier grâce aux method reference</p>
-    <pre class="fragment" data-fragment-index="5"><code class="java"
-                                                        data-trim>teacher.correctExam(Exam::computeScore);</code></pre>
+    <h1>Value Object</h1>
+    <p>Une valeur est intangible et immuable.
+       Existence indépendante du temps et de l’espace.
+       Qui ne change pas l’application ne change pas le cycle de vie de l’objet.</p>
+    <p>Quantité ou description immuable, regroupant en un tout cohérent un ensemble de valeurs primitives, avec un nom explicitant le sens de cet ensemble, et un comportement propre au nouveau concept ainsi introduit.</p>
 </section>
 
 <section>
-    <h1>Les method references</h1>
-    <pre><code class="java"
-               data-trim>public class Exam {
-    public void computeScore() {
-        // hack hack
-    }
-}</code></pre>
-    <p>permet d'appeler une méthode du paramètre</p>
-    <pre><code class="java"
-               data-trim>teacher.correctExam(Exam::computeScore);</code></pre>
+    <h1>Contenu Value Object</h1>
+    <p>MAGNITUDE et UNITE Conversion vers une autre unité</p>
+    <p>CONVERSION depuis/vers représentation textuelle</p>
+    <p>REGLES DE VALIDATION Appartenance à un intervalle, conformité à un format, ..</p>
+    <p>EGALITE: toujours Comparaison: parfois (attention à ne pas imposer un ordre naturel de tri là où il faudrait des ordres contextuels)</p>
+    <p>COMPORTEMENT propre au domaine</p>
+</section>
+    
+<section>
+    <h1>Entité</h1>
+    <p>A l'instar d'une personne, certains objets sont intrinsèquement définis par la continuité de leur identité et non par leurs attributs (qui eux peuvent varier dans le temps).</p>
+    <p>Identité et état variable sont indissociables:</p> 
+    <p>L'identité est le point d'ancrage qui permet un suivi continu de l'objet dans le temps.</p>
+    <p>Cette identité est incarnée par un ou plusieurs champs métier ou techniques, dont l'ensemble a la propriété d'unicité.</p>
 </section>
 
 <section>
-    <h1>Les method references</h1>
-    <pre><code class="java"
-               data-trim>public class Teacher {
-    public void manageExamCorrection(Exam exam) {
-        exam.computeScore();
-    }
-}</code></pre>
-    <p>permet d'appeler une méthode d'une instance d'objet</p>
-    <pre><code class="java"
-               data-trim>teacher.correctExam(teacher::manageExamCorrection);</code></pre>
-    <p>l'instance peut-être <em class="keyword">this</em></p>
-    <pre class="fragment"><code class="java"
-                                data-trim>teacher.correctExam(this::callerObjectCorrection);</code></pre>
+    <h1>Entité</h1>
+    <p>A l'instar d'une personne, certains objets sont intrinsèquement définis par la continuité de leur identité et non par leurs attributs (qui eux peuvent varier dans le temps).</p>
+    <p>Identité et état variable sont indissociables:</p> 
+    <p>L'identité est le point d'ancrage qui permet un suivi continu de l'objet dans le temps.</p>
+    <p>Cette identité est incarnée par un ou plusieurs champs métier ou techniques, dont l'ensemble a la propriété d'unicité.</p>
+</section>
+    
+<section>
+    <h1>Agrégats</h1>
+    <p>Un et un seul AGGREGATE ROOT point d'entrée unique de l'agrégat</p>
+    <p>Des ENTITES Quelques unes au maximum</p>
+    <p>Des VALUE OBJECTS sans limitation de nombre</p>
+    <p>Un (ou plusieurs) invariant</p>
+</section>
+    
+<section>
+    <h1>Racine d'agrégats</h1>
+    <p>Un NUMERO DE VERSION garantissant la cohérence transactionnelle des invariants (verrouillage optimiste)</p>
+    <p>Des VALUE OBJECTS caractérisant son état (sans limitation de nombre)</p>
+    <p>Des VALUE OBJECTS Identités Sa propre identité, constante Les identités d'Aggregate Roots d'autres Agrégats</p>
+    <p>Les méthodes d'accès centralisé à l'état de l'Agrégat: Les COMMANDES de modification de l'Agrégat Les QUERIES de calcul d'un état agrégé</p>
+    <p>Des références vers des ENTITES Du même Agrégat: aussi peu que possible mais en préservant les invariants transactionnels D'autres Agrégats: aussi peu que possible, et en lecture seule</p>
 </section>
 
 <section>
-    <h1>Les method references</h1>
-    <pre><code class="java"
-               data-trim>public class Teacher {
-    public static void staticManageExamCorrection(Exam exam) {
-        exam.computeScore();
-    }
-}</code></pre>
-    <p>permet d'appeler une méthode static d'une classe</p>
-    <pre><code class="java"
-               data-trim>teacher.correctExam(Teacher::staticManageExamCorrection);</code></pre>
+    <h1>repositories</h1>
+    <p>En lecture, le Repository permet de charger l'Aggregate Root, les autres entités de l'Agrégat ne peuvent être atteintes qu'en suivant les liens d'association.</p>
+    <p>En écriture, le Repository encapsule la création, la suppression et la modification d'un Agrégat sans exposer les Entités non-racine.</p>
+    <p>Les Repositories représentent un moyen d'accès à un ensemble d'objets 
+            BD
+            Fichier
+            Cache distribué</p>
+    <p>Ils donnent l'illusion d'une simple collection en mémoire
+            Indépendant de la persistance
+            Suit la sémantique des collections (ex: même comportement que add/remove)</p>
 </section>
 
 <section>
-    <h1>Hands on !</h1>
-    <p><img src="img/computer-geek.jpg" alt="Hands on" style="margin-top: 100px"/></p>
+    <h1>Contenu d'un Repository</h1>
+    <p>Des QUERIES génériques de type findByXXX, ...</p>
+    <p>Des USE CASE OPTIMAL QUERIES retournent une agrégation d'informations (typiquement complexe) spécifique à un cas d'utilisation</p>
+    <p>Des commandes ADD et REMOVE toujours explicites</p>
+    <p>Une commande UPDATE parfois Explicite avec les persistence-oriented Repositories Implicite avec les collection-oriented Repositories</p>
 </section>
-
-<section>
-    <p><img src="img/minions.jpg" alt="Hands on" style="margin-top: 100px"/></p>
-</section>
-<section class="section">
-    <h1>API Streams</h1>
-</section>
-<section>
-    <h1>Génération de streams</h1>
-
-    <p class="fragment" data-fragment-index="1">On peut obtenir un stream à partir d'une collection</p>
-    <pre class="fragment" data-fragment-index="1"><code class="java"
-                                                        data-trim>Stream&lt;Element&gt;stream=collection.stream();</code></pre>
-    <p class="fragment" data-fragment-index="2">Ou on peut construire les notres</p>
-    <pre class="fragment" data-fragment-index="2"><code class="java"
-                                                        data-trim>Stream.Builder&lt;T&gt;builder=Stream.builder();</code></pre>
-    <pre class="fragment" data-fragment-index="2"><code class="java" data-trim>Stream.of(T...elements);</code></pre>
-    <pre class="fragment" data-fragment-index="2"><code class="java" data-trim>Stream.generate(supplier);</code></pre>
-    <pre class="fragment" data-fragment-index="2"><code class="java" data-trim>Stream.iterate(seed,transformer);</code></pre>
-    <pre class="fragment" data-fragment-index="2"><code class="java"
-                                                        data-trim>StreamSupport.stream(spliterator,bool);</code></pre>
-    <p class="fragment" data-fragment-index="3">Il est devenu facile de paralleliser les traitements</p>
-    <pre class="fragment" data-fragment-index="3"><code class="java"
-                                                        data-trim>Stream&lt;Element&gt;stream=collection.parallelStream()</code></pre>
-    <pre class="fragment" data-fragment-index="3"><code class="java"
-                                                        data-trim>stream.parallel()</code></pre>
-</section>
-
-<section>
-    <h1>Parallélisation</h1>
-                <pre><code class="java" data-trim>public class Sample {
-    public void doSomeThingForEach(List&lt;T&gt; list) {
-        for (T element : list) {
-            doSomeThing(element);
-        }
-    }
-}</code></pre>
-</section>
-<section>
-    <h1>Parallélisation</h1>
-            <pre><code class="java" data-trim>public class Sample {
-    public void doSomeThingForEach(List&lt;T&gt; list) {
-        for (T element : list) {
-            executorService.submit(taskOnElement);
-        }
-        // some magic to wait for termination
-    }
-}</code></pre>
-</section>
-<section>
-    <h1>Parallélisation</h1>
-            <pre><code class="java" data-trim>public class Sample {
-    public void doSomeThingForEach(List&lt;T&gt; list) {
-        list.parallelStream().forEach(e -&gt; e.doSomething());
-    }
-}</code></pre>
-    <p>
-        Les lambdas viennent nous simplifier la vie !
-    </p>
-</section>
-
-<section>
-    <h1>Manipulation du Stream</h1>
-                <pre><code class="java"
-                           data-trim>public interface Stream&lt;T&gt; extends BaseStream&lt;T, Stream&lt;T&gt;&gt; {
-
-    Stream&lt;T&gt; filter(Predicate&lt;? super T&gt; predicate);
-
-    &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper);
-
-    Stream&lt;T&gt; distinct();
-
-    Stream&lt;T&gt; sorted();
-
-    Stream&lt;T&gt; peek(Consumer&lt;? super T&gt; action);
-
-    Stream&lt;T&gt; limit(long maxSize);
-}</code></pre>
-</section>
-
-<section>
-    <h1>Manipulation du Stream</h1>
-                <pre><code class="java"
-                           data-trim>public interface Stream&lt;T&gt; extends BaseStream&lt;T, Stream&lt;T&gt;&gt; {
-
-    void forEach(Consumer&lt;? super T&gt; action);
-
-    long count();
-
-    boolean anyMatch(Predicate&lt;? super T&gt; predicate);
-
-    Optional&lt;T&gt; min(Comparator&lt;? super T&gt; comparator);
-
-    Optional&lt;T&gt; findAny();
-}</code></pre>
-</section>
-
-<section>
-    <h1>L'api optional</h1>
-                <pre><code class="java" data-trim>public final class Optional&lt;T&gt; {
-
-    public T get();
-
-    public boolean isPresent();
-
-    public T orElse(T other);
-
-    public &lt;X extends Throwable&gt; T
-    orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier) throws X;
-
-    public static &lt;T&gt; Optional&lt;T&gt; empty();
-}</code></pre>
-</section>
-</section>
-
-
-<section>
-    <h1>Hands on !</h1>
-    <p><img src="img/computer-geek.jpg" alt="Hands on" style="margin-top: 100px"/></p>
-</section>
-
-<section>
-    <img src="img/gru.jpg" alt="Hands on" style="margin-top: 200px"/>
-</section>
-<section class="section">
-    <h1>Default<br/>method</h1>
-</section>
-<section>
-    <h1>Les méthodes par défaut</h1>
-
-    <p>nouveau modificateur <em class="keyword">default</em></p>
-            <pre><code class="java" data-trim>public interface MyNewInterface {
-    default String myDefaultMethod(String name) {
-        return &quot;Hello &quot; + name;
-    }
-}</code></pre>
-</section>
-
-<section>
-    <h1>Implémentation</h1>
-		  <pre><code class="java" data-trim>public interface MyNewInterface {
-    public static String myStaticMethod() {
-        return &quot;World&quot;;
-    }
-
-    default String myDefaultMethod(String name) {
-        return &quot;Hello &quot; + myStaticMethod();
-    }
-
-    String myAbstractMethod();
-
-    default String myOtherDefaultMethod() {
-        return &quot;Hello &amp;quot + myAbstractMethod();
-    }
-}</code></pre>
-</section>
-<section>
-    <h1>Héritage</h1>
-<pre><code class="java" data-trim>public interface MyNewInterface {
-    default String myDefaultMethod(String name) {
-        return &quot;Hello &quot;;
-    }
-}
-
-public interface MyNewInterfaceTwo extends MyNewInterface {
-    default String myDefaultMethod(String name) {
-        return &quot;Hello World&quot;;
-    }
-}</code></pre>
-</section>
-<section>
-    <h1>Héritage</h1>
-<pre><code class="java" data-trim>public interface MyNewInterface {
-    default String myDefaultMethod(String name) {
-        return &quot;Hello &quot;;
-    }
-}
-
-public interface MyNewInterfaceTwo {
-    default String myDefaultMethod(String name) {
-        return &quot;Hello World&quot;;
-    }
-}
-
-public class MyImplementor implements MyNewInterface, MyNewInterfaceTwo {
-
-    public String myDefaultMethod(String name) {
-        return MyNewInterface.super.myDefaultMethod(&quot;what a wonderful world !!!&quot;);
-    }
-}</code></pre>
-</section>
-
+    
+    <section>
+        <h1>DAO Vs Repository</h1>
+        <!-- TODO -->
+        
+    </section>
+    
+    <section>
+       <h1>factories</h1>
+        <p>Si la création d'un Agrégat est complexe, encapsuler cette création dans une Factory (ou autre pattern de création)</p>
+        <p>Le contrat de la Factory est de produire un Agrégat complètement construit, satisfaisant tous ses invariants.</p>
+        <p>La Factory représente un création métier d'un agrégat purement Métier et peut se base sur d'autres patterns de création</p>
+    </section>
+    
+    <section class="section">
+        <h1>Services</h1>
+    </section>
+    
+    <section>
+        <h1>Application Service</h1>
+        <p>Chaque use case va s’incarner par un Application Service Granularité plus épaisse</p>
+        <p>Utilisation d’une forme verbale (Verbe + Complément d’objet) Notion d’Action</p>
+        <p>La transaction métier est au niveau du use case</p>
+        <p>On ne compose pas les Application Service entre eux (pas auto-composable)</p>
+        <p>Chaque Application Service représente une granularité grosse: le use case</p>
+    </section>
+    
+    <section>
+        <h1>Contenu Application Service</h1>
+        <p>Des méthodes correspondant à des use cases (avec la même granularité)</p>
+        <p>La déclaration des préoccupations d'un composant frontière Sécurité, démarcation transactionnelle, ..</p>
+        <p>La coordination (spécifique au use case) de ces composants</p>
+        <p>Pas d’état</p>
+    </section>
+    
+    <section>
+        <h1>Domain Service</h1>
+        <p>Comporte des règles métier exprimées par la MOA Processus métier significatif</p>
+        <p>Ubiquitous language évoquant un service et non une Entité</p>
+        <p>Implémente un concept du domaine qu'il n'est pas naturel de mettre dans une Entité ou un Value Object</p>
+        <p>Comportement à cheval sur plusieurs Entités
+                ex: transfert entre 2 comptes
+                Transformation d'un graphe d'Entités en un autre graphe d'Entités...</p>
+        <p>Composition d'un Domain Service (DS) réutilisable de plus gros grain, à partir de DS de plus petit grain</p>
+    </section>
+    
+    <section>
+        <h1>Infrastructure Service</h1>
+        <p>Il contient des éléments techniques, n’ayant pas pour objectif de représenter un concept métier (pas nécessairement compréhensible par la MOA)
+        <p>Intégration</p>
+        <p>Technique de mapping</p>
+        <p>Communication extérieure</p>
+    </section>
+    
 <section>
     <h1>Hands on !</h1>
     <p><img src="img/computer-geek.jpg" alt="Hands on" style="margin-top: 100px"/></p>
@@ -552,7 +393,6 @@ public class MyImplementor implements MyNewInterface, MyNewInterfaceTwo {
  <img src="img/banana.jpg" alt="Hands on" style="margin-top: 100px"/>
 </section>
 </div>
-
 </div>
 
 <script src="lib/js/head.min.js"></script>
