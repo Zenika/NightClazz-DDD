@@ -52,10 +52,12 @@
 </section>
 <section>
 <h1>Domain Driven Design <br/>c'est quoi ?</h1>
-    <p>Une méthode de conception logicielle qui favorise une conception proche de la réalité</p>
-    <p>Focalisation sur le métier (au lieu d’uniquement des parties techniques)</p>
-    <p>On utilise explicitement des noms et des verbes du domaine dans le code </p> 
-    <p>La connaissance métier est le noyau de l’application</p>
+    <ol>
+        <li>Une méthode de conception logicielle qui favorise une conception proche de la réalité</li>
+        <li>Focalisation sur le métier (au lieu d’uniquement des parties techniques)</li>
+        <li>On utilise explicitement des noms et des verbes du domaine dans le code</li>
+        <li>La connaissance métier est le noyau de l’application</li>
+    </ol>
 </section>
     
 <section class="sommaire">
@@ -71,13 +73,10 @@
     <section>
 <h1>Langage ubiquitaire</h1>
         <ol>
-        <dl>Programmers should speak the language of domain experts to avoid miscommunication, delays, and errors. 
-        </dl>
-        <dl>To avoid mental translation between domain language and code, design your software to use the language of the domain. </dl> 
-        <dl>    
-            Reflect in code how users of the softwarethink and speak about their work. One powerful approach is to create a domain model.
-        </dl>
-    
+            <li>Les développeurs devrait parler le langage des Expert métiers </li>
+            <li>Utiliser ce langage pour éviter le "Mapping Mental"</li> 
+            <li>ce lanagage qui est utilisé pour communiquer doit se réfléter dans le code.</li>
+            <li>La puissance de ce langage se traduit par un "Modèle Métier"</li>
         </ol>
 </section>
 <section>
@@ -87,28 +86,17 @@
 <section class="section">
     <h1>Impact Mapping</h1>
 </section>
-<section>
-    <h1>Impact Mapping</h1>
-    <img src="img/impact_mappings.png" width="1000px"/>
-</section>
-<section>
-<h1>Impact Mapping</h1>
-    <p>Drawing impact maps An impact map is a visualisation of scope and underlying assumptions, created collaboratively by senior technical and business people. It is a mind-map grown during a discussion facilitated by considering the following four aspects:</p>
-<ol><li>Goal</li>
-    <p>The centre of an impact map answers the most important question: Why are we doing this? This is the goal we are trying to achieve.</p>
-<li>Actors</li>
-    <p>The first branch of an impact map provides answers to the following questions: Who can produce the desired effect? Who can obstruct it? Who are the consumers or users of our product? Who will be impacted by it? These are the actors who can influence the outcome.</p>
-</ol>
-</section>
-
+    
 <section>
     <h1>Impact Mapping</h1>
     <ol>
-        <li>Impacts</li>
-    <p>The second branch level of an impact map sets the actors in the perspective of our business goal. It answers the following questions: How should our actors’ behaviour change? How can they help us to achieve the goal? How can they obstruct or prevent us from succeeding? These are the impacts that we’re trying to create.</p>
-<li>Deliverables</li>
-    <p>Once we have the first three questions answered, we can talk about scope. The third branch level of an impact map answers the following question: What can we do, as an organisation or a delivery team, to support the required impacts? These are the deliverables, software features and organisational activities.</p>
-</ol>
+        <li>une méthode de visualisation "mind mapping" du "scope" et des suppositions soujacentes</li>
+        <li>quatre aspects sont à trouver: le But, les Acteurs, Les Impacts, Les Livrables</li>
+    </ol>
+</section>
+<section>
+    <h1>Impact Mapping</h1>
+    <img src="img/impact_mappings.png" width="1000px"/>
 </section>
     
 <section>
@@ -125,17 +113,13 @@
 </section>
 <section>
     <h1>Event Storming</h1>
-    <p>
-        Invite the right people to the workshop. Ideally you’ll want a large meeting room with 6..8 people, with the right mixture of the ones who know the questions to ask (and which are curious to listen to the answer) and the ones who know the answers.
-    
-        Provide unlimited modelling space. Too often complex problems are not properly analysed because there’s not enough space available to see the problem. Your problem is bigger than your whiteboard, so what? My solution is to hack the modelling space using whatever available (my favorite tool is an Ikea paper roll) to get rid of the space limitation.
-    
-        Explore the domain starting from Domain Events. A Domain Event is something meaningful happened in the domain. It can be easily translated into software, but the real value here is that it could be quickly grasped from non technical people. An event might be the predecessor of the follower of another one. Place all of them onto your modelling surface (the convention is to use orange stickies for this purpose) according to a timeline.
-    
-        Explore the origin of Domain Events. Some events are the direct consequence of a user action —> represent it as a Command using a blue sticky note. Others are the consequence of something happening in external systems or of the time passing, we’ll use a purple sticky note for them. In some other cases, we’ll have events that will be the direct consequence of some other events. We’ll simply place the two events close together.
-    
-        Look for Aggregates. Instead of defining aggregates starting from the code, we’re taking an outside-in approach: the Aggregate is the portion of the system that receives commands and decides whether to execute them or not, thus producing a domain event.
-    </p>
+    <ol>
+        <li>invitez les bonnes personnes à l'atelier</li>
+        <li>fournissez un espace illimité pour la modélisation</li>
+        <li>Explorez votre domaine à partir des "Domain Events"</li>
+        <li>Explorez l'origine de vos "Domain Events"</li>
+        <li>Trouvez vos aggrégats</li>
+    </ol>
 </section>
     
 
@@ -144,18 +128,15 @@
     <img src="img/event-storming-2.jpg" width="1200px" style="margin-top: -190px" />
 </section>
 <section>
-    <h1>Modélisation</h1>    
-    <p>Les modèles décrivent certains aspects du domaine en donnant une description simplifiée (mais réaliste) de la réalité</p>
-    <p>Un modèle forme les bases d’un langage spécialisé pour un domaine</p>
-    <p>Les modèles sont crées et exploités par les différents acteurs de la chaîne logicielle.  Ils constituent une activité de collaboration pour Communiquer</p>
-    <p>Faciliter l’exploration du métier</p>
-    <p>Gérer la complexité</p>
-    <p>Générer du code (de moins en moins)</p>
-</section>
-    
-<section>
-    <h1>Hands on !</h1>
-    <p><img src="img/computer-geek.jpg" alt="Hands on" style="margin-top: 100px"/></p>
+    <h1>Modélisation</h1>
+    <ol>
+        <li>Les modèles décrivent certains aspects du domaine</li>
+        <li>Un modèle forme les bases d’un langage spécialisé pour un domaine</li>
+        <li>Les modèles sont crées et exploités par les différents acteurs de la chaîne logicielle.</li>
+        <li>Faciliter l’exploration du métier</li>
+        <li>Gérer la complexité</li>
+        <li>Générer du code (de moins en moins)</li>
+    </ol>
 </section>
     
 <section>
@@ -176,20 +157,23 @@
 
 <section>
     <h1>Contextes bornés (Bounded Context)</h1>
-    <p>Un BC est un contexte délimité par une frontière linguistique nette. A l'intérieur d'un BC, tous les concepts du modèle (noms et verbes) ont une signification spécifique, comprise et acceptée par tous les membres de l’équipe.</p>
-    <p>On détermine donc les limites d’application d’un modèle
-        Les membres de l’équipe ont une vision précise des éléments qui doivent être consistants</p>
-    <p>Dans un BC, le modèle du domaine est exprimé par un Ubiquitous Language partagé par tous
-        Un domaine métier peut contenir plusieurs BC, chaque BC définissant son Propre Language</p>
+    <ol>
+    <li>Un Bounded Context est un contexte délimité par une frontière linguistique nette.</li>
+    <li>Dans un Bounded Context, le modèle du domaine est exprimé par un Ubiquitous Language</li>
+    <li>Un domaine métier peut contenir plusieurs Bounded Context</li>
+    <li>chaque Bounded Context définissant son Propre Language</li>
+    </ol>
 </section>
         
 <section>
     <h1>Contextes bornés (Bounded Context): Avantages</h1>
-    <p>Renforce la pureté et la puissance du modèle</p>
-    <p>Evite la confusion avec les autres contextes</p>
-    <p>Simplifie l’Architecture (Fait émerger des transitions explicites entre les différents contextes)</p>
-    <p>Favorise un partitionnement technique et organisationnel</p>
-</section>
+    <ol>
+    <li>Renforce la pureté et la puissance du modèle</li>
+    <li>Evite la confusion avec les autres contextes</li>
+    <li>Simplifie l’Architecture (Fait émerger des transitions explicites entre les différents contextes)</li>
+    <li>Favorise un partitionnement technique et organisationnel</li>
+    </ol>
+    </section>
 
 <section>
  <img src="img/modularity-without-and-domain-driven-design.jpg" width="1200px" style="margin-top: 100px"/>
@@ -201,32 +185,40 @@
     
 <section>
         <h1>Context Mapping</h1>
-        <p>Processus de conception pour identifier les points de contact et les relations entre les différents modèles</p>
-        <p>On identifie les Bounded Context (BC) amont et aval, ce qui permet d’expliciter les rôles de chacun</p>
-        <p>On analyse les transformations nécessaires</p>
-        <p>Une relation entre deux équipes</p> 
-        <p>L’équipe en amont (upstream)</p>
-        <p>L’équipe en aval (downstream)</p>
+    <ol>
+    <li>Permet d'identifier les points de contact et les relations entre les différents modèles</li>
+        <li>On identifie les Bounded Context amont et aval</li>
+        <li>On analyse les transformations nécessaires</li>
+        <li>ça peut être une relation entre deux équipes</li> 
+        <li>L’équipe en amont (upstream)</li>
+        <li>L’équipe en aval (downstream)</li>
+    </ol>
+        
 </section>
     
 <section>
     <h1>shared kernel pattern</h1>
+    <img src="img/shared_kernel.png"/>
 </section>
 
 <section>
-    <h1>customer/supplier Development</h1>
+    <h1>Customer/Supplier</h1>
+    <img src="img/customer_supplier.png"/>
 </section>
     
 <section>
-    <h1>confirmist</h1>
+    <h1>Conformist</h1>
+    <img src="img/conformist.png"/>
 </section>
 
 <section>
     <h1>Anti Corruption Layer</h1>
+    <img src="img/ACL.jpeg"/>
 </section>
 
 <section>
     <h1>Separate Ways</h1>
+    <img src="img/separate_ways.png"/>
 </section>
     
 <section>
@@ -245,103 +237,93 @@
 </section>
 <section>
     <h1>Domain Events</h1>
-    <p>Les Domain Event modélisent l'activité dans le domaine par une série d'événements discrets:</p>
-    <p>S'est produit dans le passé</p>
-    <p>Intéresse les experts métier</p>
-    <p>Un événement technique n'est pas un Domain Event</p>
-    <p>Fait partie de l'Ubiquitous language</p>
-    <p>Est instantané (sans durée) et atomique (insécable)</p>
-</section>
+    <ol>
+        <li> modélisent l'activité dans le domaine par une série d'événements discrets</li>
+        <li>S'est produit dans le passé</li>
+        <li>Intéresse les experts métier</li>
+        <li>Fait partie de l'Ubiquitous language</li>
+    </ol>
+    </section>
 <section>
     <h1>Contenu Domain Events</h1>
-    <p>IDENTIFIANTS des entités impactées</p>
-    <p>DATE/HEURE de survenance</p>
-    <p>Le CONTEXTE avant et après l'événement Les CIRCONSTANCES de l'événement</p>
-    <p>NUMERO DE SERIE de l'événement (pour permettre à sa consammation d'être idempotente)</p>
-    <p>PAS DE COMPORTEMENT Les consommateurs décident comment tenir compte de l'événement</p>
+    <ol>
+    <li>IDENTIFIANTS des entités impactées</li>
+    <li>DATE/HEURE de survenance</li>
+    <li>Le CONTEXTE avant et après l'événement</li>
+    <li>NUMERO DE SERIE de l'événement</li>
+    <li>PAS DE COMPORTEMENT !!!!</li>
+    </ol>
+    
 </section>
 <section>
     <h1>Value Object</h1>
-    <p>Une valeur est intangible et immuable.
-       Existence indépendante du temps et de l’espace.
-       Qui ne change pas l’application ne change pas le cycle de vie de l’objet.</p>
-    <p>Quantité ou description immuable, regroupant en un tout cohérent un ensemble de valeurs primitives, avec un nom explicitant le sens de cet ensemble, et un comportement propre au nouveau concept ainsi introduit.</p>
+    <ol>
+    <li>Une valeur est intangible et immuable</li>
+    <li>Quantité ou description immuable</li>
+    <li>ensemble de valeurs avec un nom explicitant le sens de cet ensemble</li>
+    <li>un comportement propre au nouveau concept</li>
+    </ol>
 </section>
 
 <section>
     <h1>Contenu Value Object</h1>
-    <p>MAGNITUDE et UNITE Conversion vers une autre unité</p>
-    <p>CONVERSION depuis/vers représentation textuelle</p>
-    <p>REGLES DE VALIDATION Appartenance à un intervalle, conformité à un format, ..</p>
-    <p>EGALITE: toujours Comparaison: parfois (attention à ne pas imposer un ordre naturel de tri là où il faudrait des ordres contextuels)</p>
-    <p>COMPORTEMENT propre au domaine</p>
+    <ol>
+    <li>MAGNITUDE et UNITE Conversion vers une autre unité</li>
+    <li>CONVERSION depuis/vers représentation textuelle</li>
+    <li>REGLES DE VALIDATION Appartenance à un intervalle, conformité à un format, ..</li>
+    <li>COMPORTEMENT propre au domaine</li>
+    <li>PAS D'IDENTITE !!!!</li>
+    </ol>
 </section>
     
 <section>
     <h1>Entité</h1>
-    <p>A l'instar d'une personne, certains objets sont intrinsèquement définis par la continuité de leur identité et non par leurs attributs (qui eux peuvent varier dans le temps).</p>
-    <p>Identité et état variable sont indissociables:</p> 
-    <p>L'identité est le point d'ancrage qui permet un suivi continu de l'objet dans le temps.</p>
-    <p>Cette identité est incarnée par un ou plusieurs champs métier ou techniques, dont l'ensemble a la propriété d'unicité.</p>
-</section>
-
-<section>
-    <h1>Entité</h1>
-    <p>A l'instar d'une personne, certains objets sont intrinsèquement définis par la continuité de leur identité et non par leurs attributs (qui eux peuvent varier dans le temps).</p>
-    <p>Identité et état variable sont indissociables:</p> 
-    <p>L'identité est le point d'ancrage qui permet un suivi continu de l'objet dans le temps.</p>
-    <p>Cette identité est incarnée par un ou plusieurs champs métier ou techniques, dont l'ensemble a la propriété d'unicité.</p>
+    <ol>
+    <li>IDENTITE Unique et Immutable</li>
+    <li>ETAT mutable à travers le temps</li>
+    <li>RELATIONS avec d'autres Entités (associations)</li>
+    <li>COMPORTEMENT METIER utilisant l'état encapsulé</li>
+    </ol>
 </section>
     
 <section>
     <h1>Agrégats</h1>
-    <p>Un et un seul AGGREGATE ROOT point d'entrée unique de l'agrégat</p>
-    <p>Des ENTITES Quelques unes au maximum</p>
-    <p>Des VALUE OBJECTS sans limitation de nombre</p>
-    <p>Un (ou plusieurs) invariant</p>
+    <ol>
+    <li>Un et un seul AGGREGATE ROOT point d'entrée unique de l'agrégat</li>
+    <li>Des ENTITES Quelques unes au maximum</li>
+    <li>Des VALUE OBJECTS sans limitation de nombre</li>
+    <li>Un (ou plusieurs) invariant</li>
+    </ol>
 </section>
     
 <section>
     <h1>Racine d'agrégats</h1>
-    <p>Un NUMERO DE VERSION garantissant la cohérence transactionnelle des invariants (verrouillage optimiste)</p>
-    <p>Des VALUE OBJECTS caractérisant son état (sans limitation de nombre)</p>
-    <p>Des VALUE OBJECTS Identités Sa propre identité, constante Les identités d'Aggregate Roots d'autres Agrégats</p>
-    <p>Les méthodes d'accès centralisé à l'état de l'Agrégat: Les COMMANDES de modification de l'Agrégat Les QUERIES de calcul d'un état agrégé</p>
-    <p>Des références vers des ENTITES Du même Agrégat: aussi peu que possible mais en préservant les invariants transactionnels D'autres Agrégats: aussi peu que possible, et en lecture seule</p>
+    <ol>
+    <li>Des VALUE OBJECTS Identités</li> 
+    <li>Des VALUE OBJECTS caractérisant son état</li>
+    <li>Les COMMANDES de modification de l'Agrégat </li> 
+    <li>Les QUERIES de calcul d'un état agrégé</li>
+    <li>Des références vers des ENTITES Du même Agrégat</li>
+    </ol>
 </section>
 
 <section>
     <h1>repositories</h1>
-    <p>En lecture, le Repository permet de charger l'Aggregate Root, les autres entités de l'Agrégat ne peuvent être atteintes qu'en suivant les liens d'association.</p>
-    <p>En écriture, le Repository encapsule la création, la suppression et la modification d'un Agrégat sans exposer les Entités non-racine.</p>
-    <p>Les Repositories représentent un moyen d'accès à un ensemble d'objets 
-            BD
-            Fichier
-            Cache distribué</p>
-    <p>Ils donnent l'illusion d'une simple collection en mémoire
-            Indépendant de la persistance
-            Suit la sémantique des collections (ex: même comportement que add/remove)</p>
+    <ol>    
+    <li>permet de charger l'Aggregate Root</li>
+    <li>encapsule la création, la suppression et la modification d'un Agrégat</li>
+    <li>Les Repositories représentent un moyen d'accès à un ensemble d'objets</li>
+    <li>Ils donnent l'illusion d'une simple collection en mémoire</li>
+    </ol>
 </section>
-
-<section>
-    <h1>Contenu d'un Repository</h1>
-    <p>Des QUERIES génériques de type findByXXX, ...</p>
-    <p>Des USE CASE OPTIMAL QUERIES retournent une agrégation d'informations (typiquement complexe) spécifique à un cas d'utilisation</p>
-    <p>Des commandes ADD et REMOVE toujours explicites</p>
-    <p>Une commande UPDATE parfois Explicite avec les persistence-oriented Repositories Implicite avec les collection-oriented Repositories</p>
-</section>
-    
-    <section>
-        <h1>DAO Vs Repository</h1>
-        <!-- TODO -->
-        
-    </section>
     
     <section>
        <h1>factories</h1>
-        <p>Si la création d'un Agrégat est complexe, encapsuler cette création dans une Factory (ou autre pattern de création)</p>
-        <p>Le contrat de la Factory est de produire un Agrégat complètement construit, satisfaisant tous ses invariants.</p>
-        <p>La Factory représente un création métier d'un agrégat purement Métier et peut se base sur d'autres patterns de création</p>
+        <ol>
+        <li>permet la création des Agrégats complexe</li>
+        <li>produit un Agrégat complètement construit, satisfaisant tous ses invariants.</li>
+        <li>représente une création métier d'un agrégat</li>
+        </ol>
     </section>
     
     <section class="section">
@@ -350,44 +332,33 @@
     
     <section>
         <h1>Application Service</h1>
-        <p>Chaque use case va s’incarner par un Application Service Granularité plus épaisse</p>
-        <p>Utilisation d’une forme verbale (Verbe + Complément d’objet) Notion d’Action</p>
-        <p>La transaction métier est au niveau du use case</p>
-        <p>On ne compose pas les Application Service entre eux (pas auto-composable)</p>
-        <p>Chaque Application Service représente une granularité grosse: le use case</p>
-    </section>
-    
-    <section>
-        <h1>Contenu Application Service</h1>
-        <p>Des méthodes correspondant à des use cases (avec la même granularité)</p>
-        <p>La déclaration des préoccupations d'un composant frontière Sécurité, démarcation transactionnelle, ..</p>
-        <p>La coordination (spécifique au use case) de ces composants</p>
-        <p>Pas d’état</p>
+        <ol>
+        <li>Chaque use case va s’incarner par un Application Service</li>
+        <li>Utilisation d’une forme verbale (Verbe + Complément d’objet) Notion d’Action</li>
+        <li>La transaction métier est au niveau du use case</li>
+        <li>On ne peux composer  les Application Service entre eux</li>
+        <li>Pas d’état</li>
+        </ol>
     </section>
     
     <section>
         <h1>Domain Service</h1>
-        <p>Comporte des règles métier exprimées par la MOA Processus métier significatif</p>
-        <p>Ubiquitous language évoquant un service et non une Entité</p>
-        <p>Implémente un concept du domaine qu'il n'est pas naturel de mettre dans une Entité ou un Value Object</p>
-        <p>Comportement à cheval sur plusieurs Entités
-                ex: transfert entre 2 comptes
-                Transformation d'un graphe d'Entités en un autre graphe d'Entités...</p>
-        <p>Composition d'un Domain Service (DS) réutilisable de plus gros grain, à partir de DS de plus petit grain</p>
+        <ol>
+        <li>Comporte des règles métier</li>
+        <li>Implémente un concept du domaine qu'il n'est pas naturel à une Entité ou à un Value Object</li>
+        <li>Exemple: Comportement à cheval sur plusieurs Entités</li>
+        <li>Composition possible d'un Domain Service à partir d'autres Domain Services</li>
+        </ol>
     </section>
     
     <section>
         <h1>Infrastructure Service</h1>
-        <p>Il contient des éléments techniques, n’ayant pas pour objectif de représenter un concept métier (pas nécessairement compréhensible par la MOA)
-        <p>Intégration</p>
-        <p>Technique de mapping</p>
-        <p>Communication extérieure</p>
+        <ol>
+            <li>Il contient des éléments techniques Exemples: Intégration, Communication extérieure</li>
+            <li>L’interface est dans la couche Domain</li>
+            <li>L’implémentation est dans la couche Infrastructure</li>
+        </ol>
     </section>
-    
-<section>
-    <h1>Hands on !</h1>
-    <p><img src="img/computer-geek.jpg" alt="Hands on" style="margin-top: 100px"/></p>
-</section>
 
 <section>
  <img src="img/banana.jpg" alt="Hands on" style="margin-top: 100px"/>
